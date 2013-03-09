@@ -41,39 +41,6 @@ module Ixtlan
           config.save
           write config
         end
-
-        # on get, :id do |id|
-        #   write Configuration.get!( id )
-        # end
-
-        # on get do
-        #   write Configuration.all
-        # end
-
-        # on post do
-        #   config = new_instance( Configuration )
-        #   config.save
-        #   write config
-        # end
-
-        # on put, :id do |id|
-        #   updated_at = keeps( Configuration )[ :updated_at ]
-        #   config = Configuration.optimistic_get!( updated_at,
-        #                                           id )
-        #   config.attributes = params
-        #   config.modified_by = current_user if config.dirty?
-        #   config.save
-        #   write config
-        # end
-
-        # on delete, :id do |id|
-        #   updated_at = keeps( Configuration )[ :updated_at ]
-        #   config = Configuration.optimistic_get( updated_at,
-        #                                          id )
-        #   config.destroy
-        #   head 200
-        # end
-
       end
     end
   end
