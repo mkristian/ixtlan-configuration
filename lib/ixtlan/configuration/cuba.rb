@@ -33,7 +33,7 @@ module Ixtlan
         end
 
         on post do
-          updated_at = keeps( Configuration )[ :updated_at ]
+          updated_at = keeps( Configuration )[ 'updated_at' ]
           config = Configuration.optimistic_get!( updated_at,
                                                   Configuration.instance.id )
           config.attributes = params
