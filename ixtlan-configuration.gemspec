@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 Gem::Specification.new do |s|
   s.name = 'ixtlan-configuration'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
 
   s.summary = 'configuration for other ixtlan-xyz wth serializer, input-filter and cuba definition'
   s.description = s.summary
