@@ -30,24 +30,40 @@ module Ixtlan
 
       property :id, Serial
 
+      property :base_url, String, :default => 'http://localhost:3000', :length => 64
+
       if defined? Ixtlan::Session
         property :idle_session_timeout, Integer, :required => true, :default => 15
       end
 
       if defined? Ixtlan::Audit
-        property :audits_keep_logs, Integer, :required => true, :default => 30
+        property :audit_keep_logs, Integer, :required => true, :default => 30
       end
 
       if defined? Ixtlan::Errors
         property :errors_keep_dumps, Integer, :required => true, :default => 30
-        property :errors_base_url, String, :required => false, :length => 128, :default => "http://localhost:3000/errors" 
+        property :errors_base_path, String, :required => false, :length => 128, :default => "/errors" 
         property :errors_from_email, String, :required => false, :length => 128, :default => 'no-reply@example.com'
         property :errors_to_emails, String, :required => false, :length => 255, :default => 'developer@example.com'
+
+        def errors_base_url
+          base_url + errors_base_path
+        end
       end
 
       if defined? Ixtlan::Remote
         property :users_url, String, :required => false, :length => 128, :default => "http://localhost:3000" 
         property :users_token, String, :required => true, :length => 64, :default => "behappy"
+      end
+
+      if defined? Rack::Session::EncryptedCookie
+        require 'openssl'
+
+        property :encrypted_cookie_secret, String, :required => true, :length => 64, :writer => :protected, :default => Proc.new { OpenSSL::Random.random_bytes(16).inspect }
+
+        def reset_encrypted_cookie_secret
+          self.encrypted_cookie_secret = OpenSSL::Random.random_bytes(16).inspect
+        end
       end
 
       if defined? Ixtlan::Gettext
