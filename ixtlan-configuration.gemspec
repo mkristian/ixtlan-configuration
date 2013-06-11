@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files += Dir['spec/**/*']
   s.test_files += Dir['spec/**/*_spec.rb']
   s.add_development_dependency 'slf4r', '~> 0.4.2'
+  s.add_development_dependency 'rake', '~> 10.0.2'
 end
 
 # vim: syntax=Ruby
