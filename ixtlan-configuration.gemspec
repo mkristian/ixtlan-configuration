@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'cuba-api', '~> 0.5'
   s.add_development_dependency 'rake', '~> 10.1'
   s.add_development_dependency 'minitest', '~> 5.0'
+  s.add_development_dependency 'copyright-header', '~>1.0'
   s.add_development_dependency 'ixtlan-audit'
   s.add_development_dependency 'ixtlan-error-handler'
   s.add_development_dependency 'ixtlan-remote'
