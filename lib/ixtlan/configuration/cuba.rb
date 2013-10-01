@@ -33,10 +33,10 @@ module Ixtlan
         end
 
         on put do
-          updated_at = keeps( Configuration )[ 'updated_at' ]
-          config = Configuration.optimistic_get!( updated_at,
+          req_filter( Configuration )
+          config = Configuration.optimistic_get!( req_filter.updated_at,
                                                   Configuration.instance.id )
-          config.attributes = params
+          config.attributes = req_filter.params
           config.modified_by = current_user if config.dirty?
           config.save
           write config
