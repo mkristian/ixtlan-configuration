@@ -22,12 +22,52 @@ require 'ixtlan/babel/serializer'
 
 class ConfigurationSerializer < Ixtlan::Babel::Serializer
 
-  add_context(:single,
-              :except => [:id, :modified_by_id],
-              :include => {
-                :modified_by => {
-                  :only => [:id, :login, :name]
+  METHODS = [ :base_url, :created_at, :updated_at ]
+  
+  if defined? Ixtlan::Session
+    METHODS << :idle_session_timeout
+  end
+
+  if defined? Ixtlan::Audit
+    METHODS << :audit_keep_logs
+  end
+
+  if defined? Ixtlan::Errors
+    METHODS << :errors_keep_dumps
+    METHODS << :errors_base_path
+    METHODS << :errors_from_email
+    METHODS << :errors_to_emails
+  end
+
+  if defined? Ixtlan::Remote
+    METHODS << :users_url 
+    METHODS << :users_token
+  end
+
+  if defined? Rack::Session::EncryptedCookie
+    METHODS << :encrypted_cookie_secret
+  end
+
+  if defined? Ixtlan::Gettext
+    METHODS << :flash_url 
+    METHODS << :translations_url 
+    METHODS << :translations_token
+  end
+
+  if defined?( Ixtlan::UserManagement::User ) && Ixtlan::UserManagement::User.respond_to?( :properties )
+    add_context(:single,
+                :only => [],
+                :methods => METHODS,
+                :include => {
+                  :modified_by => {
+                    :only => [:id, :login, :name]
+                  }
                 }
-              }
-             )
+                )
+  else
+    add_context(:single,
+                :only => [],
+                :methods => METHODS
+                )
+  end
 end
