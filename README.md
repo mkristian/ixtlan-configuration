@@ -4,7 +4,7 @@
 * [![Dependency Status](https://gemnasium.com/mkristian/ixtlan-configuration.png)](https://gemnasium.com/mkristian/ixtlan-configuration)
 * [![Code Climate](https://codeclimate.com/github/mkristian/ixtlan-configuration.png)](https://codeclimate.com/github/mkristian/ixtlan-configuration)
 
-persistent configuration for the xtlan series. with cuba for composition.
+persistent configuration for the xtlan series. includes a cuba 'controller' for composition.
 
 TODO usage
 ==========
