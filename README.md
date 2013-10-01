@@ -1,8 +1,8 @@
 # ixtlan-configuration #
 
 * [![Build Status](https://secure.travis-ci.org/mkristian/ixtlan-configuration.png)](http://travis-ci.org/mkristian/ixtlan-configuration) 
-* [![Dependency Status](https://gemnasium.com/mkristian/ixtlan-ixtlan-configuration.png)](https://gemnasium.com/mkristian/ixtlan-ixtlan-configuration)
-* [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mkristian/ixtlan-ixtlan-configuration)
+* [![Dependency Status](https://gemnasium.com/mkristian/ixtlan-configuration.png)](https://gemnasium.com/mkristian/ixtlan-configuration)
+* [![Code Climate](https://codeclimate.com/github/mkristian/ixtlan-configuration.png)](https://codeclimate.com/github/mkristian/ixtlan-configuration)
 
 persistent configuration for the xtlan series. with cuba for composition.
 

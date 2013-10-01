@@ -1,5 +1,4 @@
-source :rubygems
-
+source 'https://rubygems.org'
 gemspec
 
-gem 'minitest', '~> 5.0' if RUBY_VERSION =~ /^1.8./
+gem 'copyright-header', '~>1.0', :platform => :mri
