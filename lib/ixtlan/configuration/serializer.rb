@@ -60,7 +60,8 @@ class ConfigurationSerializer < Ixtlan::Babel::Serializer
                 :methods => METHODS,
                 :include => {
                   :modified_by => {
-                    :only => [:id, :login, :name]
+                    :only => [],
+                    :methods => [:id, :login, :name]
                   }
                 }
                 )
