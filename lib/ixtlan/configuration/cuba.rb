@@ -28,11 +28,11 @@ module Ixtlan
     class Cuba < ::CubaAPI
 
       define do
-        on get do
+        on_guard :get do
           write Configuration.instance
         end
 
-        on put do
+        on_guard :put do
           req_filter( Configuration )
           config = Configuration.optimistic_get!( req_filter.updated_at,
                                                   Configuration.instance.id )
